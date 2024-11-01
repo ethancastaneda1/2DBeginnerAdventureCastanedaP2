@@ -6,7 +6,7 @@ public class HealthColllectable : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D other)
     {
-        SugarLandController controller = GetComponent<SugarLandController>();
+        SugarLandController controller = other.GetComponent<SugarLandController>();
         if (controller != null)
         {
             controller.ChangeHealth(1);
