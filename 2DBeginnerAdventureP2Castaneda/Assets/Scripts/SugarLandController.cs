@@ -24,7 +24,8 @@ public class SugarLandController : MonoBehaviour
     {
         rigidbody2d = GetComponent<Rigidbody2D>();
         // currentHealth = maxHealth;
-        currentHealth = 1;
+        currentHealth = 5;
+           
     }
 
     // Update is called once per frame
@@ -35,7 +36,7 @@ public class SugarLandController : MonoBehaviour
 
         if (isInvincible)
         {
-            invincibleTimer = Time.deltaTime;
+            invincibleTimer -= Time.deltaTime;
             if (invincibleTimer < 0)
             {
                 isInvincible = false;
