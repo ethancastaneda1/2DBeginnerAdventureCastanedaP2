@@ -61,10 +61,12 @@ public class SugarLandController : MonoBehaviour
                 isInvincible = false;
 
             }
-            if(Input.GetKeyDown(KeyCode.C))
-            {
-                Launch();
-            }
+            
+
+        }
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            Launch();
 
         }
     }
@@ -101,6 +103,6 @@ public class SugarLandController : MonoBehaviour
         Projectile projectile = projectileObject.AddComponent<Projectile>();
 
         projectile.Launch(lookDirection, 300);
-        animator.SetTrigger("launch");
+        animator.SetTrigger("Launch");
     }
 }
