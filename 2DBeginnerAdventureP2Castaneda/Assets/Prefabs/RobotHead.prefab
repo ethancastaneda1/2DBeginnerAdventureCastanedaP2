@@ -114,7 +114,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &6182263869151740537
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -196,3 +196,5 @@ MonoBehaviour:
   speed: 3
   vertical: 0
   changetime: 3
+  smokeEffect: {fileID: 2820336947297250196, guid: e757f15bdd4425e439b05f193ac8a52c,
+    type: 3}

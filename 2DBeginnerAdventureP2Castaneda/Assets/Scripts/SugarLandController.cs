@@ -9,6 +9,7 @@ public class SugarLandController : MonoBehaviour
     public float speed = 3.0f;
 
     public int maxHealth = 5;
+    public int health{get { return currentHealth; } }
     int currentHealth;
 
     public GameObject projectilePrefab; 
@@ -28,13 +29,18 @@ public class SugarLandController : MonoBehaviour
 
     Animator animator;
     Vector2 lookDirection = new Vector2(1, 0);
+
+    AudioSource audioSource;
+    public AudioClip throwSound;
+    public AudioClip hitSound;
     // Start is called before the first frame update
     void Start()
     {
         rigidbody2d = GetComponent<Rigidbody2D>();
-        // currentHealth = maxHealth;
-        currentHealth = 5;
+        currentHealth = maxHealth;
+        
         animator = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
            
     }
 
@@ -104,6 +110,7 @@ public class SugarLandController : MonoBehaviour
             }
             isInvincible = true;
             invincibleTimer = timeInvincible;
+            PlaySound(hitSound);
         }
         currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
           UIHealthBar.instance.SetValue(currentHealth/(float)maxHealth);
@@ -118,5 +125,11 @@ public class SugarLandController : MonoBehaviour
 
         projectile.Launch(lookDirection, 300);
         animator.SetTrigger("Launch");
+        PlaySound(throwSound);   
+    }
+
+    public void PlaySound(AudioClip clip)
+    {
+        audioSource.PlayOneShot(clip);
     }
 }
